@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table" *ngIf="bills">
+    <thead>
+    <tr>
+      <th>ID</th><th>Billing date</th><th>Customer ID</th><th>Customer's full name</th><th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let b of bills">
+      <td>{{b?.id}}</td>
+      <td>{{b?.billingDate | date: "dd/MM/yyyy"}}</td>
+      <td>{{b?.customerId}}</td>
+      <td>{{b.customer.firstName}} {{b.customer.lastName}}</td>
+      <td>{{b.total | number: ".2"}}</td>
+      <td><button class="btn btn-sm btn-primary" (click)="getBillDetails(b)">Details</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+</div>

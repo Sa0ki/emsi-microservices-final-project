@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="inventory-service" />
+        <module name="config-service" />
+        <module name="customer-service" />
+        <module name="eureka-discovery-service" />
+        <module name="gateway" />
+        <module name="microservices" />
+        <module name="billing-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="billing-service" target="17" />
+      <module name="config-service" target="17" />
+      <module name="customer-service" target="17" />
+      <module name="eureka-discovery-service" target="17" />
+      <module name="gateway" target="17" />
+      <module name="inventory-service" target="17" />
+      <module name="microservices" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="billing-service" options="-parameters" />
+      <module name="config-service" options="-parameters" />
+      <module name="customer-service" options="-parameters" />
+      <module name="eureka-discovery-service" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="inventory-service" options="-parameters" />
+      <module name="microservices" options="-parameters" />
+    </option>
+  </component>
+</project>

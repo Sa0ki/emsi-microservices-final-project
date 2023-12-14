@@ -1,0 +1,43 @@
+<div class="container card">
+  <div class = "card-body">
+    <input type = "text" [(ngModel)]="keyword">&nbsp;
+    <button (click)="getProducts()" class = "btn btn-outline-success">
+      <i class = "bi bi-search"></i>
+    </button>
+  </div>
+  <table class="table" *ngIf="products">
+    <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Price</th><th>Checked</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.price}}</td>
+      <td>
+        <button (click)="checkProduct(p)" class = "btn btn-outline-success">
+          <i [class]="p.checked ? 'bi bi-check': 'bi bi-circle'"></i>
+        </button>
+      </td>
+      <td><button (click)="updateProduct(p)" class = "btn btn-outline-primary">
+        <i class = "bi bi-pencil"></i>
+        Edit</button>
+        &nbsp;
+      <button (click)="deleteProduct(p)" class = "btn btn-outline-danger" *ngIf="appStateService.authState.roles.includes('ADMIN')">
+        <i class = "bi bi-trash"></i>
+        Remove</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <ul class = "nav nav-pills">
+    <li *ngFor="let page of [].constructor(this.totalPages); let i = index">
+      <button class = "btn m-1"
+        (click)="goToPage(i+1)"
+             [ngClass]="currentPage == (i+1) ? 'btn-success': 'btn-outline-success'">
+        {{i + 1}}
+      </button>
+    </li>
+  </ul>
+</div>

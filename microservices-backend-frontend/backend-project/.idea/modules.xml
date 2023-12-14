@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/backend-project.iml" filepath="$PROJECT_DIR$/.idea/backend-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/billing-service/billing-service.iml" filepath="$PROJECT_DIR$/microservices/billing-service/billing-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/config-service/config-service.iml" filepath="$PROJECT_DIR$/microservices/config-service/config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/customer-service/customer-service.iml" filepath="$PROJECT_DIR$/microservices/customer-service/customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/eureka-discovery-service/eureka-discovery-service.iml" filepath="$PROJECT_DIR$/microservices/eureka-discovery-service/eureka-discovery-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/gateway/gateway.iml" filepath="$PROJECT_DIR$/microservices/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/inventory-service/inventory-service.iml" filepath="$PROJECT_DIR$/microservices/inventory-service/inventory-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/microservices.iml" filepath="$PROJECT_DIR$/microservices/microservices.iml" />
+    </modules>
+  </component>
+</project>

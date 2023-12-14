@@ -1,0 +1,96 @@
+services:
+  discovery-service:
+    build: ./eureka-discovery-service
+    container_name: discovery-service
+    ports:
+      - "8761:8761"
+    expose:
+      - "8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      retries: 4
+  config-service:
+    build: ./config-service
+    container_name: config-service
+    ports:
+      - "9090:9090"
+    expose:
+      - "9090"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9090/actuator/health" ]
+      interval: 10s
+      retries: 4
+    environment:
+      - DISCOVERY_SERVICE_URL=http://discovery-service:8761/eureka
+    depends_on:
+      discovery-service:
+        condition: service_healthy
+  customer-service:
+    build: ./customer-service
+    container_name: customer-service
+    ports:
+      - "8081:8081"
+    expose:
+      - "8081"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 10s
+      retries: 4
+    environment:
+      - CONFIG_SERVICE_URL=http://config-service:9090
+      - DISCOVERY_SERVICE_URL=http://discovery-service:8761/eureka
+    depends_on:
+      config-service:
+        condition: service_healthy
+  inventory-service:
+    build: ./inventory-service
+    container_name: inventory-service
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8082/actuator/health" ]
+      interval: 10s
+      retries: 4
+    environment:
+      - CONFIG_SERVICE_URL=http://config-service:9090
+      - DISCOVERY_SERVICE_URL=http://discovery-service:8761/eureka
+    depends_on:
+      config-service:
+        condition: service_healthy
+  billing-service:
+    build: ./billing-service
+    container_name: billing-service
+    ports:
+      - "8083:8083"
+    expose:
+      - "8083"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
+      interval: 10s
+      retries: 4
+    environment:
+      - CONFIG_SERVICE_URL=http://config-service:9090
+      - DISCOVERY_SERVICE_URL=http://discovery-service:8761/eureka
+    depends_on:
+      config-service:
+        condition: service_healthy
+      customer-service:
+        condition: service_healthy
+      inventory-service:
+        condition: service_healthy
+  gateway-service:
+    build: ./gateway
+    container_name: gateway-service
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    environment:
+      - CONFIG_SERVICE_URL=http://config-service:9090
+      - DISCOVERY_SERVICE_URL=http://discovery-service:8761/eureka
+    depends_on:
+      billing-service:
+        condition: service_healthy

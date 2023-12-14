@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "saad",
+      "password": "MTIzNA==",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    },
+    {
+      "id": "kawtar",
+      "password": "NTY3OA==",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    },
+    {
+      "id": "admin",
+      "password": "YWRtaW4=",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple TV",
+      "price": "17000",
+      "checked": true
+    },
+    {
+      "id": 3,
+      "name": "Smartphone",
+      "price": 600,
+      "checked": true
+    },
+    {
+      "id": 5,
+      "name": "Xbox S",
+      "price": 4500,
+      "checked": true
+    },
+    {
+      "name": "Printer",
+      "price": "1500",
+      "checked": false,
+      "id": 6
+    },
+    {
+      "name": "Iphone XS",
+      "price": "4600",
+      "checked": true,
+      "id": 7
+    }
+  ]
+}

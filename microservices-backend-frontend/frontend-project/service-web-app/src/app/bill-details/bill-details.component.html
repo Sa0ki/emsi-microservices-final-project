@@ -1,0 +1,38 @@
+<div class="container">
+  <table class="table table-bordered" *ngIf="bill">
+    <thead>
+    <tr>
+      <th>ID</th><th>Billing date</th><th>Customer</th><th>Details</th><th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{bill?.id}}</td>
+      <td>{{bill?.billingDate | date: "dd/MM/yyyy"}}</td>
+      <td>{{bill.customer.firstName}} {{bill.customer.lastName}}</td>
+      <td>
+        <table class="table table-borderless table-hover table-light">
+          <thead>
+          <tr>
+            <th>Product</th><th>Quantity</th><th>Price</th><th>Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let pi of bill.productItems">
+            <td>{{pi?.product.name}}</td>
+            <td>{{pi?.quantityItem}}</td>
+            <td>{{pi?.product.price}}</td>
+            <td>{{ (pi ? (pi.product.price * pi.quantityItem) : '') | number: ".2" }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+      <td>{{bill.total | number: ".2"}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+</div>
