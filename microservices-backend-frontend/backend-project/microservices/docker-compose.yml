@@ -94,3 +94,10 @@ services:
     depends_on:
       billing-service:
         condition: service_healthy
+  angular-service:
+    build: ./angular-service
+    container_name: angular-service
+    ports:
+      - "4200:80"
+    expose:
+      - "4200"
